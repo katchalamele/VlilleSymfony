@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<div class="p-4">
+    <h1 class="display-4">Bienvenue sur mon site !</h1>
+    <p class="lead">Decouvrez les plateformes que j'ai développé avec le framework Symfony.</p>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="img/vlille_640.jpg" alt="Vlille"/>
+                <div class="card-body">
+                    <h5 class="card-title">Vlille</h5>
+                    <p class="card-text">Plateforme de localisation des stations de vélos de la métropole lilloise.</p>
+                    <a href="{{ path('stations') }}" class="btn btn-primary">Visiter</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="img/blog_640.jpg" alt="Articles"/>
+                <div class="card-body">
+                    <h5 class="card-title">Articles</h5>
+                    <p class="card-text">Plateforme de publication d'articles et de commentaires avec persistance de données. <br/> (Pas encore Disponible) </p>
+                    <a class="btn btn-primary" href="#">Visiter</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+{% endblock %}

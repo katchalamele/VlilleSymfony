@@ -1,24 +1,8 @@
-{# templates/lucky/number.html.twig javascript_pack_tag 'map'#}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vlille</title>
-    <meta name="description" content="Vlille">
 
-    <script src="./build/app.js"></script>
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script src="./js/VliveImage.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./js/map.js"></script>
-    <link rel="stylesheet" href="./build/app.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+{% extends 'base.html.twig' %}
 
-  </head>
-
-  <body>
-    <main role="main">
-
+{% block content %}
+<main role="main">
 <div class="jumbotron text-center text-white" style="background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),url('./img/vlille_1920.jpg'); background-size: cover;">
     <h1 class="display-4">Vlille</h1>
     <p class="lead">Plateforme de localisation des stations de vélos de la métropole lilloise.</p>
@@ -56,5 +40,4 @@
 </div>
 </div>
 </main>
-  </body>
-</html>
+{% endblock %}

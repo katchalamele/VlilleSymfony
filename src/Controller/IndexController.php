@@ -19,7 +19,7 @@ class IndexController extends AbstractController{
     * @Route("/", name="index")
     */
     public function index(){
-        return $this->redirectToRoute('stations');
+        return $this->render('welcome.html.twig', []);
     }
 
     /**
