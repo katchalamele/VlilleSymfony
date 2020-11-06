@@ -1,0 +1,60 @@
+{# templates/lucky/number.html.twig javascript_pack_tag 'map'#}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vlille</title>
+    <meta name="description" content="Vlille">
+
+    <script src="./build/app.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="./js/VliveImage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/map.js"></script>
+    <link rel="stylesheet" href="./build/app.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+
+  </head>
+
+  <body>
+    <main role="main">
+
+<div class="jumbotron text-center text-white" style="background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),url('./img/vlille_1920.jpg'); background-size: cover;">
+    <h1 class="display-4">Vlille</h1>
+    <p class="lead">Plateforme de localisation des stations de vélos de la métropole lilloise.</p>
+</div>
+<div class="container-fluid" >
+<div class="row">
+    <div class="col-6">
+        <ul id="stations" class="list-group">
+            {% for station in stations.records %}
+            <a class="station_item list-group-item list-group-item-action"  {% for key, value in station.fields %} data-{{key}}="{{value|join(',')}}" {% endfor %} >
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 w-100 bd-highlight font-weight-bold">{{ station['fields']['nom'] }}</div>
+                    <div class="p-2 flex-shrink-1 bd-highlight"><span class="badge badge-{{station['fields']['etat']=='EN SERVICE' ? 'success' : 'danger' }}"> {{station['fields']['etat']}} </span></div>
+                </div>
+                <div class="description d-flex bd-highlight">
+                    <div class="p-2 flex-fill bd-highlight">
+                        Places disponibles: {{ station['fields']['nbplacesdispo'] }}<br/>
+                        Vélos disponibles: {{ station['fields']['nbvelosdispo'] }}
+                    </div>
+                    <div class="p-2  flex-fill bd-highlight">
+                        Adresse : {{ station['fields']['adresse'] }}<br/>
+                        Commune : {{ station['fields']['commune'] }}
+
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-6">
+        <div class="sticky-top w-100">
+        <div id="mapDiv" style="height:100vh"></div>
+        </div>
+    </div>
+</div>
+</div>
+</main>
+  </body>
+</html>
